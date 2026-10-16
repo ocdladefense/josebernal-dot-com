@@ -1,61 +1,35 @@
-import "../css/input.css";
-import "../css/drawer.css";
 import { createRoot } from 'react-dom/client';
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from '../components/App.jsx';
-import Sites from '../components/ui/Sites.jsx';
-import LegislativeAction from '../components/legislative/LegislativeAction.jsx';
-import LegislativeActionHome from '../components/legislative/LegislativeActionHome.jsx';
-import HomePage from "../components/HomePage.jsx";
-import Map from '../components/Map.jsx';
 
+const pdfExamples = [
+    {
+        label: 'House District 1 map (8.5 × 11)',
+        url: encodeURI('https://geo.maps.arcgis.com/sharing/rest/content/items/4f1befdfdc17469ebc73b76e508cb259/data')
+    },
+    {
+        label: 'House District 1 map (34 × 44)',
+        url: 'https://geo.maps.arcgis.com/sharing/rest/content/items/6d7d2442a1bd4a77a347381e4d87ecf4/data'
+    },
+    {
+        label: 'Senate District 1 map (8.5 × 11)',
+        url: 'https://geo.maps.arcgis.com/sharing/rest/content/items/19d6fe61f0b745f6a2fd3a204d63767a/data'
+    },
+    {
+        label: 'Senate District 1 map (34 × 44)',
+        url: 'https://geo.maps.arcgis.com/sharing/rest/content/items/b147e462d1da4dd2a825f25a00ac31e3/data'
+    }
+];
 
-
-
-if (process.env.NODE_ENV === 'debug')
-{
-    setDebugLevel(1);
-}
-
-
-
-
-const $root = document.getElementById("app");
-const root = createRoot($root);
-
-
-
-const ScrollToTop = () => {
-    const { pathname } = useLocation();
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
-
-    return null; // This component doesn't render anything
-};
-
-
+const root = createRoot(document.getElementById('app'));
 
 root.render(
-    <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-            <Route path="/" element={<App />}>
-                <Route index element={<HomePage />} />
-                <Route path="sites">
-                    <Route index element={<Sites />} />
-                </Route>
-                <Route path="action">
-                    <Route index element={<LegislativeActionHome />} />
-                    <Route path=":type" element={<LegislativeAction />} />
-                </Route>
-            </Route>
-            <Route path="/map">
-                <Route index element={<Map />} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
+    <main style={{ margin: '2rem auto', maxWidth: '40rem', padding: '0 1rem', fontFamily: 'sans-serif' }}>
+        <h1>PDF Examples</h1>
+        <ul>
+            {pdfExamples.map(({ label, url }) => (
+                <li key={url}>
+                    <a href={url}>{label}</a>
+                </li>
+            ))}
+        </ul>
+    </main>
 );
