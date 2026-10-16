@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client';
 
 const pdfExamples = [
     {
-        label: 'Letter to Sean O\'Day regarding residential exposure to kiln exhaust at the Jax residential building, Corvallis, Oregon.',
+        label: 'Letter to Sean O\'Day regarding residential exposure to kiln exhaust at the Jax residential building, Corvallis, Oregon - February 26, 2026',
         url: '/documents/Request%20for%20Enforcement%20-%20Director%2C%20DCBS.pdf'
     }
 ];
@@ -11,7 +11,7 @@ const root = createRoot(document.getElementById('app'));
 
 root.render(
     <main style={{ margin: '2rem auto', maxWidth: '40rem', padding: '0 1rem', fontFamily: 'sans-serif' }}>
-        <h1>PDF Examples</h1>
+        <h1>Documents related to residential exposure to kiln exhaust</h1>
         <ul>
             {pdfExamples.map(({ label, url }) => (
                 <li key={url}>
