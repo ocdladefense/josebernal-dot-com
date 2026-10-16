@@ -138,6 +138,10 @@ export default env => {
                         to: path.resolve(__dirname, "dist/images")
                     },
                     {
+                        from: path.resolve(__dirname, "src/documents"),
+                        to: path.resolve(__dirname, "dist/documents")
+                    },
+                    {
                         from: path.resolve(__dirname, "src/data"),
                         to: path.resolve(__dirname, "dist/data")
                     },
