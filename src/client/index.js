@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 const pdfExamples = [
     {
         label: 'House District 1 map (8.5 × 11)',
-        url: 'https://geo.maps.arcgis.com/sharing/rest/content/items/4f1befdfdc17469ebc73b76e508cb259/data'
+        url: encodeURI('https://geo.maps.arcgis.com/sharing/rest/content/items/4f1befdfdc17469ebc73b76e508cb259/data')
     },
     {
         label: 'House District 1 map (34 × 44)',
